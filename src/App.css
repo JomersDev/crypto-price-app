@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(1, 2, 10);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/***************** Component Containers **********************/
+
+
+.app-container {
+  display: grid;
+  grid-template-rows: 0.4fr auto 0.4fr;
+  height: 100vh;
+}
+
+.header-container {
+  background-color: rgb(21, 22, 34);
+  color: rgb(128, 126, 126);
+  min-height: 80px;
+}
+
+.card-container {
+  color: white;
+  background-color: grey;
+}
+
+.footer-container {
+  background-color: rgb(21, 22, 34);
+  color: rgb(128, 126, 126);
+  min-height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/***************** Link Styling **********************/
+
+a {
+  color: rgb(128, 126, 126);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgb(128, 126, 126);
+}
