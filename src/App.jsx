@@ -20,17 +20,19 @@ function App() {
   const coinElements = coins.map(coin => 
     <Card 
       key={coin.id} 
-      name={coin.name} 
+      name={coin.name}
+      symbol={coin.symbol} 
       price={coin.current_price} 
       marketCap={coin.market_cap}
       rank={coin.market_cap_rank}
-      image={coin.image}/>
+      image={coin.image}
+      priceChange={coin.price_change_24h}/>
   )
 
   return (
     <div className="app-container">
       <Header />
-      <div>
+      <div className="coin-container">
         {coinElements}
       </div>
       <Footer />

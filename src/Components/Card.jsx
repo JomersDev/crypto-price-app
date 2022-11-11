@@ -2,12 +2,17 @@ import React from "react";
 
 export default function Card(props) {
     return (
-        <div className="card-container">
-            <p>{props.rank}</p>
-            <img src={props.image} />
-            <h1>{props.name}</h1>
-            <p>${(props.price).toLocaleString()} USD</p>
-            <p>Market Cap: ${(props.marketCap).toLocaleString()} USD</p>
+        <div className={props.priceChange < 0 ? "card-container price-decrease" : "card-container price-increase"}>
+            <div className="card-container--image">
+                <img src={props.image} className={"image"}/>
+            </div>
+            <div>
+                <h1 className="coin-name">{props.name}</h1>
+                <p className="coin-symbol">{props.symbol}</p>
+            </div>
+            <div className="card-container--price">
+                <p className={props.priceChange < 0 ? "price-decrease-text" : "price-increase-text"}>${(props.price).toLocaleString()}</p>
+            </div>
         </div>
     )
 }
