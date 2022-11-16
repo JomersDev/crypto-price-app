@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 import Header from './Components/Header'
 import Card from './Components/Card'
 import Footer from './Components/Footer'
+import CoinData from './Pages/CoinData'
 import './App.css'
+import {Route, Routes,} from "react-router-dom"
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
 
   const coinElements = coins.map(coin => 
     <Card 
-      key={coin.id} 
+      key={coin.id}
+      id={coin.id} 
       name={coin.name}
       symbol={coin.symbol} 
       price={coin.current_price} 
@@ -33,7 +36,10 @@ function App() {
     <div className="app-container">
       <Header />
       <div className="coin-container">
-        {coinElements}
+        <Routes>
+          <Route path='/' element={coinElements}/>
+          <Route path='/:name' element={<CoinData />}/>
+        </Routes>
       </div>
       <Footer />
     </div>

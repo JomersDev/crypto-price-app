@@ -1,10 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 export default function Header() {
     return (
         <div className="header-container">
-            <h1 className="title">Crypto Price App</h1>
-            <p></p>
+            <Link to="/"><h1 className="title">Coin Stats</h1></Link>
         </div>
     )
 }
