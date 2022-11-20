@@ -6,7 +6,7 @@ export default function CoinDataHeader(props) {
             <div className="coindata-header-title">
                 <img src={props.image} />
                 <h1 className="coindata-title">{props.name}</h1>
-                <h1 className="coindata-title coindata-symbol">({props.symbol})</h1>
+                <h1 className="coindata-title uppercase">({props.symbol})</h1>
             </div>
             <div className="coindata-price-container">
                 <p className="coindata-price">${(props.price).toLocaleString()}</p>

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import CoinDataHeader from "../Components/CoinDataHeader";
 import CoinDataInfo from "../Components/CoinDataInfo";
+import CoinDataStats from "../Components/CoinDataStats";
+import CoinDataDesc from "../Components/CoinDataDesc";
+import Converter from "../Components/Converter";
 
 export default function CoinData(props) {
 
@@ -37,18 +40,21 @@ export default function CoinData(props) {
                         circulatingSupply={coinInfo.market_data.circulating_supply}
                         totalSupply={coinInfo.market_data.total_supply}
                         maxSupply={coinInfo.market_data.max_supply}/>
-                    <div>
-                        <h3>{coinInfo.symbol} Price Statistics</h3>
-                            <p className="coin-symbol">24h Low / 24h High</p>
-                            <p className="coin-symbol">${coinInfo.market_data.low_24h.usd} / ${coinInfo.market_data.high_24h.usd}</p>
-                            <p className="coin-symbol">7d Low / 7d High</p>
-                            <p className="coin-symbol">Market Cap Rank</p>
-                            <p className="coin-symbol">Market Cap Dominance</p>
-                            <p className="coin-symbol">Volume / Market Cap</p>
-                            <p className="coin-symbol">All-Time High</p>
-                            <p className="coin-symbol">${coinInfo.market_data.ath.usd}</p>
-                            <p className="coin-symbol">All-Time Low</p>
-                            <p className="coin-symbol">${coinInfo.market_data.atl.usd}</p>
+                    <div className="bottom-grid">
+                        <CoinDataDesc 
+                            desc={coinInfo.description.en}/>
+                        <div>
+                            <CoinDataStats
+                                low24={coinInfo.market_data.low_24h.usd}
+                                high24={coinInfo.market_data.high_24h.usd}
+                                ath={coinInfo.market_data.ath.usd}
+                                atl={coinInfo.market_data.atl.usd}
+                                marketCapRank={coinInfo.market_cap_rank}
+                            />
+                            <Converter
+                                symbol={coinInfo.symbol}
+                                price={coinInfo.market_data.current_price.usd} />
+                        </div>
                     </div>
                 </div>
 
