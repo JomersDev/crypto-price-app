@@ -45,19 +45,6 @@ h1,p {
   gap: 1rem;
 }
 
-.card-container {
-  color: white;
-  background-color: rgb(14, 13, 13);
-  display: grid;
-  grid-template-columns: 0.8fr 1.5fr 2fr;
-  align-items: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-radius: 0.5rem;
-  width: 30rem;
-  box-shadow: rgba(73, 66, 66, 0.5) 0px 2px 8px 0px;
-}
-
 .footer-container {
   background-color: rgb(21, 22, 34);
   color: rgb(128, 126, 126);
@@ -107,6 +94,41 @@ h1,p {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
+/***************** Card Styling **********************/
+
+.card-container, .cardheader {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 0.05fr 0.5fr 0.2fr 0.1fr 0.1fr 0.1fr 0.2fr;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  align-items: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  width: 45rem;
+  box-shadow: rgba(73, 66, 66, 0.5) 0px 2px 8px 0px;
+}
+
+.card-container-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 260px;
+}
+
+.card-container:hover {
+  cursor: pointer;
+  background-color:#faf5f5;
+}
+
+.card-text {
+  font-size: 0.75rem;
+}
+
+
 /***************** CoinDataInfo Styling **********************/
 
 .coindatainfo-grid {
@@ -250,11 +272,11 @@ a:visited {
 /***************** Image Styling **********************/
 
 .image {
-  height: 4rem;
-  width: 4rem;
+  height: 1rem;
+  width: auto;
 }
 
-.card-container--image {
+.card-container-image {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,25 +291,17 @@ a:visited {
 }
 
 .coin-name {
-  font-size: 1rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05rem;
 }
 
 .coin-symbol {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgb(139, 139, 139);
   text-transform: uppercase;
 }
 
-/***************** Dynamic Gradient **********************/
-
-.price-increase {
-  background: linear-gradient(130deg, rgba(14, 13, 13, 0.486) 50%, rgb(4, 158, 63) 130%);
-}
-
-.price-decrease {
-  background: linear-gradient(140deg, rgba(14,13,13,1) 50%, rgba(134,4,6,1) 130%);
-}
+/***************** Dynamic Price Colors **********************/
 
 .price-increase-text {
   color: rgb(7, 179, 7);

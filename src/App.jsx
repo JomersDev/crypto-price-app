@@ -3,6 +3,7 @@ import Header from './Components/Header'
 import Card from './Components/Card'
 import Footer from './Components/Footer'
 import CoinData from './Pages/CoinData'
+import CardHeader from './Components/CardHeader'
 import './App.css'
 import {Route, Routes,} from "react-router-dom"
 
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     console.log("fetching data")
-    fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+    fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
       .then(response => response.json())
       .then(data => setCoins(data))
   },[])
@@ -29,7 +30,10 @@ function App() {
       marketCap={coin.market_cap}
       rank={coin.market_cap_rank}
       image={coin.image}
-      priceChange={coin.price_change_24h}/>
+      priceChange={coin.price_change_24h}
+      priceChange1hr={coin.price_change_percentage_1h_in_currency}
+      priceChange24hr={coin.price_change_percentage_24h_in_currency}
+      priceChange7d={coin.price_change_percentage_7d_in_currency}/>
   )
 
   return (
@@ -37,7 +41,7 @@ function App() {
       <Header />
       <div className="coin-container">
         <Routes>
-          <Route path='/' element={coinElements}/>
+          <Route path='/' element={<><CardHeader /> {coinElements}</>}/>
           <Route path='/:name' element={<CoinData />}/>
         </Routes>
       </div>
