@@ -10,15 +10,18 @@ import {Route, Routes,} from "react-router-dom"
 function App() {
 
   const [coins, setCoins] = useState([])
+  const [currency, setCurrency] = useState("usd")
 
   useEffect(() => {
     console.log("fetching data")
-    fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
+    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`)
       .then(response => response.json())
       .then(data => setCoins(data))
-  },[])
+  },[currency])
 
-  console.log(coins)
+  function changeToAud() {
+    setCurrency(prev => prev === "usd" ? "aud" : "usd")
+  }
 
   const coinElements = coins.map(coin => 
     <Card 
@@ -38,7 +41,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header changeCurrency={changeToAud} currency={currency}/>
       <div className="coin-container">
         <Routes>
           <Route path='/' element={<><CardHeader /> {coinElements}</>}/>

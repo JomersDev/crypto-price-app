@@ -13,7 +13,7 @@ export default function CoinDataInfo(props) {
             </div>
             <div className="coindatainfo-grid-item">
                 <p className="coindatainfo-text">Fully Diluted Valuation</p>
-                <p className="coindatainfo-stat">{props.fdv ? props.fdv : "unavailable"}</p>
+                <p className="coindatainfo-stat">{props.fdv ? (props.fdv).toLocaleString() : "unavailable"}</p>
             </div>
             <div className="coindatainfo-grid-item">
                 <p className="coindatainfo-text">Circulating Supply</p>
@@ -21,7 +21,7 @@ export default function CoinDataInfo(props) {
             </div>
             <div className="coindatainfo-grid-item">
                 <p className="coindatainfo-text">Total Supply</p>
-                <p className="coindatainfo-stat">{(props.totalSupply).toLocaleString()}</p>
+                <p className="coindatainfo-stat">{props.totalSupply ? (props.totalSupply).toLocaleString() : "unavailable"}</p>
             </div>
             <div className="coindatainfo-grid-item">
                 <p className="coindatainfo-text">Max Supply</p>
