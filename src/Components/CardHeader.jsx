@@ -3,7 +3,7 @@ import React from "react";
 export default function CardHeader() {
     return (
         <div className="cardheader">
-            <p>#</p>
+            <p className="card-number">#</p>
             <p>Coin</p>
             <p>Price</p>
             <p>1h</p>
