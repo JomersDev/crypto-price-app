@@ -181,6 +181,10 @@ h1,p {
   font-weight: 600;
 }
 
+.card-number {
+  font-weight: bold;
+}
+
 /***************** CoinDataStats Styling **********************/
 
 .coindatastats-container {
